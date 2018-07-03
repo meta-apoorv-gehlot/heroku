@@ -65,9 +65,20 @@ public class Application {
     }
   }
 
-  private static Connection getConnection() throws URISyntaxException, SQLException {
-    String dbUrl = System.getenv("JDBC_DATABASE_URL");
-    return DriverManager.getConnection(dbUrl);
+  // private static Connection getConnection() throws URISyntaxException, SQLException {
+  //   String dbUrl = System.getenv("JDBC_DATABASE_URL");
+  //   return DriverManager.getConnection(dbUrl);
+  // }
+  
+  @Bean
+  public DataSource dataSource() throws SQLException {
+    if (dbUrl == null || dbUrl.isEmpty()) {
+      return new HikariDataSource();
+    } else {
+      HikariConfig config = new HikariConfig();
+      config.setJdbcUrl(dbUrl);
+      return new HikariDataSource(config);
+    }
   }
 
   // @Bean
