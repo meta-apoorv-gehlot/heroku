@@ -45,6 +45,7 @@ public class Application {
 
     @RequestMapping("/userDetail")
     String db(Map<String, Object> model) {
+      log.info("Reached userDetail");
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
       // stmt.executeUpdate("CREATE TABLE IF NOT EXISTS USER_DETAIL ID INT PRIMARY KEY NOT NULL, NAME VARCHAR(45))");
