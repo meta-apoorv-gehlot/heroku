@@ -43,7 +43,7 @@ public class Application {
         
     }
 
-    @RequestMapping("/db")
+    @RequestMapping("/userDetail")
     String db(Map<String, Object> model) {
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();

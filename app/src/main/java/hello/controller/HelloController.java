@@ -18,8 +18,4 @@ public class HelloController {
         return "Spring Boot Demo Application";
     }
     
-    // @RequestMapping("/{userId}")
-    // public String getUserById(@PathVariable(value="userId") int id) {
-    //     return userService.getUserById(id);
-    // }
 }
