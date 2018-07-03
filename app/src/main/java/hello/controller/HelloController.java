@@ -17,5 +17,4 @@ public class HelloController {
     public String index() {
         return "Spring Boot Demo Application";
     }
-    
 }
