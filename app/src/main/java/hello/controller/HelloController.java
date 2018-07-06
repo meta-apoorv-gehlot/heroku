@@ -70,7 +70,7 @@ public class HelloController {
 
       ArrayList<String> output = new ArrayList<String>();
       while (rs.next()) {
-        output.add("Read from DB: " + rs.getTimestamp("NAME"));
+        output.add("Read from DB: " + rs.getString("NAME"));
       }
 
       model.put("records", output);
