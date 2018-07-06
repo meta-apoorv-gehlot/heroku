@@ -71,11 +71,11 @@ public class HelloController {
 
       ArrayList<String> output = new ArrayList<String>();
       while (rs.next()) {
-        output.add("Read from DB: " + rs.getString("NAME"));
+        output.add("User: " + rs.getString("NAME") + ";");
       }
 
     //   model.put("records", output);
-      return output.stream().collect(Collectors.joining("; "));
+      return output.stream().collect(Collectors.joining("\n"));
     } catch (Exception e) {
       e.printStackTrace();
     //   model.put("message", );
