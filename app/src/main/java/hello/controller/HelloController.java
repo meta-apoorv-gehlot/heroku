@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.Connection;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -73,12 +74,12 @@ public class HelloController {
         output.add("Read from DB: " + rs.getString("NAME"));
       }
 
-      model.put("records", output);
-      return "db";
+    //   model.put("records", output);
+      return output.stream().collect(Collectors.joining("; "));
     } catch (Exception e) {
       e.printStackTrace();
-      model.put("message", e.getMessage());
-      return "error";
+    //   model.put("message", );
+      return "error: " + e.getMessage();
     }
   }
   
